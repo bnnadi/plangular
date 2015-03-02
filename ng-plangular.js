@@ -110,6 +110,9 @@ plangular.directive('plangular', ['$http', 'plangularConfig', function ($http, p
       if (!audio.readyState) return false;
       var xpos = e.offsetX / e.target.offsetWidth;
       audio.currentTime = (xpos * audio.duration);
+    },
+    volume: function(vol){
+          audio.volume = vol;
     }
 
   };
@@ -199,6 +202,10 @@ plangular.directive('plangular', ['$http', 'plangularConfig', function ($http, p
           player.seek(e);
         }
       };
+
+      scope.volume = function(e){
+          player.volume(fader.value/100)
+       };
 
     }
 
